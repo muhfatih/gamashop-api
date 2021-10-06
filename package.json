@@ -1,0 +1,27 @@
+{
+  "name": "gamashop-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0",
+    "mongoose": "^6.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhfatih/gamashop-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhfatih/gamashop-api/issues"
+  },
+  "homepage": "https://github.com/muhfatih/gamashop-api#readme"
+}
