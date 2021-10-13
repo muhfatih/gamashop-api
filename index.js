@@ -3,20 +3,17 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const mongoose = require('mongoose');
 const registerCustomer = require('./route/register-customer')
+const connectDB = require('./connect-db')
 
-mongoose
-	.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
-	.then((res) => {
-		app.listen(process.env.PORT)
-	});
+connectDB()
 
+// Routing
+//route index
 app.get("/", (req,res) => {
-	return res.json({
+	return res.json({	
 		message : "gamashop api"
 	})
 });
-
-// Routing
+//pendaftaran akun customer
 app.post('/register-customer',registerCustomer);
