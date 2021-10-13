@@ -5,7 +5,7 @@ const Customer = require('../models/customer')
 require('dotenv').config();
 
 async function registerCustomer(req,res) {
-	//memeriksa params
+	//memeriksa input
 	const {name, email, password} = req.body;
 	
 	if(!name||!email||!password) return res.status(400).json({status:'ERROR', code:'bad-request'})
@@ -18,7 +18,7 @@ async function registerCustomer(req,res) {
 	
 	if(isExisted) return res.status(403).json({status: 'ERROR', code:'already-registered', email: email})
 
-	//hash password dengan bcrypt ditambahkan dengan salt
+	//hash password dengan bcrypt
 	const hashedPassword = await bcrypt.hash(password, 15)
 
 	//menyimpan data registrasi pada database
