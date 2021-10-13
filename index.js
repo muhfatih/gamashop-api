@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const mongoose = require('mongoose');
+const registerCustomer = require('./route/register-customer')
 
 mongoose
 	.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then((res) => {
-		console.log(res);
 		app.listen(process.env.PORT)
 	});
 
@@ -16,3 +18,5 @@ app.get("/", (req,res) => {
 	})
 });
 
+// Routing
+app.post('/register-customer',registerCustomer);
