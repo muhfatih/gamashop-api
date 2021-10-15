@@ -7,13 +7,15 @@ require('dotenv').config();
 async function loginCustomer(req,res) {
 	const{email, password} = req.body
 	if(!email||!password) return res.status(400).json({status:'ERROR', code:'bad-request'})
-	const isExisted = await Customer.find({email: email}).exec()
-		.then(res => res.length)
-		.catch(err => console.log(err))
-	console.log(isExisted);
-	if(!isExisted) return res.status(403).json({status: 'ERROR', code:'not-registered', email: email})
-	const hashedInput = await bcrypt.hash(req.body.password, 15)
-	
-}
+	const isExisted = await Customer.findOne({email: email})
+		.then(async (req,res) =>{
+			console.log(Customer.password);
+			const result = await bcrypt.compareSync(req.body.password, Customer.password)
+			if(result) console.log('gas');
+			else console.log('jangan');
+		})
+		.catch(err => console.log(err));
+	}
+
 
 module.exports = loginCustomer

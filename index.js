@@ -7,7 +7,7 @@ const connectDB = require('./connect-db');
 const registerCustomer = require('./route/register-customer');
 const loginCustomer = require('./route/login-customer');
 
-connectDB();
+connectDB(app);
 
 // Routing
 

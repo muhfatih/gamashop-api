@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
-const express = require('express')
-const app = express()
 
-function connectDB() {
+function connectDB(app) {
 	mongoose
 		.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
 		.then((res) => {
