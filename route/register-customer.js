@@ -40,7 +40,7 @@ async function registerCustomer(req,res) {
 	//hapus properti password karena result akan dikirimkan lagi
 	result.password = undefined
 
-	return res.status(200).json({status:'OK', code:'successfully-registered', body:{token, user_data:result}})
+	return res.json({status:'OK', code:'successfully-registered', body:{token, user_data:result}})
 }
 
 module.exports = registerCustomer
