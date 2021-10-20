@@ -6,6 +6,8 @@ app.use(express.urlencoded({ extended: true }));
 const connectDB = require('./connect-db');
 const registerCustomer = require('./route/register-customer');
 const loginCustomer = require('./route/login-customer');
+const registerSeller = require('./route/register-seller');
+const loginSeller = require('./route/login-seller');
 const getAllProducts = require('./route/get-all-products');
 const getProductByID = require('./route/get-product-by-id');
 const getProductByCategory = require('./route/get-product-by-category');
@@ -29,3 +31,5 @@ app.get('/product/:id_product/', getProductByID)
 app.get('/product', getAllProducts)
 app.post('/register-customer', registerCustomer)
 app.post('/login-customer', loginCustomer)
+app.post('/register-seller', registerSeller)
+app.post('/login-seller', loginSeller)
