@@ -1,4 +1,3 @@
-const dbConnect = require('../dbConnection');
 const Seller = require('../models/seller');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
@@ -6,7 +5,6 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 
 async function registerSeller(req, res){
-    dbConnect();
     const {
         name,
         email,
