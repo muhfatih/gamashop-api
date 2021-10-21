@@ -9,5 +9,5 @@ const customerSchema = new schema({
 	password: String
 })
 
-const Customer = mongoose.model("Customer", customerSchema, "customer")
+const Customer = mongoose.model("Customer", customerSchema, "customers")
 module.exports = Customer

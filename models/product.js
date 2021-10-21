@@ -16,5 +16,5 @@ const productSchema = new schema({
 	updated_at : Date,
 })
 
-const product = mongoose.model("Product", productSchema, "product");
+const product = mongoose.model("Product", productSchema, "products");
 module.exports = product
