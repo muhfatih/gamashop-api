@@ -13,6 +13,7 @@ const getProductByID = require('./route/get-product-by-id');
 const getProductByCategory = require('./route/get-product-by-category');
 const getTrendingProducts = require('./route/get-trending-products');
 const getNewArrivalProducts = require('./route/get-new-arrival-products');
+const getAllCouriers = require('./route/get-all-couriers')
 connectDB(app);
 
 // Routing
@@ -29,6 +30,7 @@ app.get('/product/list-trending/:amount', getTrendingProducts)
 app.get('/product/list-new-arrival/:amount', getNewArrivalProducts)
 app.get('/product/:id_product/', getProductByID)
 app.get('/product', getAllProducts)
+app.get('/courier', getAllCouriers)
 app.post('/register-customer', registerCustomer)
 app.post('/login-customer', loginCustomer)
 app.post('/register-seller', registerSeller)
