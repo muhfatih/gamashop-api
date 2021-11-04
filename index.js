@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const cors = require('cors');
+const corsOptionsDelegate = require('./cors');
 const connectDB = require('./connect-db');
 const registerCustomer = require('./route/register-customer');
 const loginCustomer = require('./route/login-customer');
@@ -15,6 +15,9 @@ const getTrendingProducts = require('./route/get-trending-products');
 const getNewArrivalProducts = require('./route/get-new-arrival-products');
 const getAllCouriers = require('./route/get-all-couriers')
 connectDB(app);
+app.use(cors(corsOptionsDelegate));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routing
 
@@ -25,9 +28,9 @@ app.get("/", (req,res) => {
 	})
 });
 
-app.get('/product/list-by-category/:category_product/:amount', getProductByCategory)
-app.get('/product/list-trending/:amount', getTrendingProducts)
-app.get('/product/list-new-arrival/:amount', getNewArrivalProducts)
+app.get('/product/list-by-category/:category_product/', getProductByCategory)
+app.get('/product/list-trending/', getTrendingProducts)
+app.get('/product/list-new-arrival/', getNewArrivalProducts)
 app.get('/product/:id_product/', getProductByID)
 app.get('/product', getAllProducts)
 app.get('/courier', getAllCouriers)
