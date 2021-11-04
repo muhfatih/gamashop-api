@@ -1,4 +1,4 @@
-const allowlist = ['https://gamashop-gamma.vercel.app', 'http://localhost:5000']
+const allowlist = ['https://gamashop-gamma.vercel.app', 'http://localhost:5000', 'http://localhost:3000']
 const corsOptionsDelegate = function (req, callback) {
 	let corsOptions;
 	if (allowlist.indexOf(req.header('Origin')) !== -1) {
