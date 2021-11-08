@@ -7,7 +7,6 @@ require('dotenv').config();
 async function registerCustomer(req,res) {
 	//memeriksa input
 	const {name, email, password} = req.body;
-	
 	if(!name||!email||!password) return res.status(400).json({status:'ERROR', code:'bad-request'})
 	if(password.length < 8)  return res.status(400).json({status:'ERROR', code:'invalid-password'})
 	

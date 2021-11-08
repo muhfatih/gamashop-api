@@ -28,9 +28,9 @@ app.get("/", (req,res) => {
 	})
 });
 
-app.get('/product/list-by-category/:category_product/', getProductByCategory)
-app.get('/product/list-trending/', getTrendingProducts)
-app.get('/product/list-new-arrival/', getNewArrivalProducts)
+app.get('/product/list-by-category/:category_product/:amount', getProductByCategory)
+app.get('/product/list-trending/:amount', getTrendingProducts)
+app.get('/product/list-new-arrival/:amount', getNewArrivalProducts)
 app.get('/product/:id_product/', getProductByID)
 app.get('/product', getAllProducts)
 app.get('/courier', getAllCouriers)
