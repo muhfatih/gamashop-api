@@ -13,7 +13,10 @@ const getProductByID = require('./route/get-product-by-id');
 const getProductByCategory = require('./route/get-product-by-category');
 const getTrendingProducts = require('./route/get-trending-products');
 const getNewArrivalProducts = require('./route/get-new-arrival-products');
-const getAllCouriers = require('./route/get-all-couriers')
+const getAllCouriers = require('./route/get-all-couriers');
+const addTrackers = require('./route/add-tracker');
+const addTransactions = require('./route/add-transactions');
+
 connectDB(app);
 app.use(cors(corsOptionsDelegate));
 app.use(express.json());
@@ -38,3 +41,5 @@ app.post('/register-customer', registerCustomer)
 app.post('/login-customer', loginCustomer)
 app.post('/register-seller', registerSeller)
 app.post('/login-seller', loginSeller)
+app.post('/add-transactions', addTransactions)
+app.post('/add-trackers', addTrackers)
