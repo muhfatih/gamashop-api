@@ -11,7 +11,7 @@ async function loginSeller(req, res){
     } = req.body;
     
     if(!(email && password)){
-        res.status(400).send('All input is required!');
+        return res.status(400).send('All input is required!');
     }
     
     const seller = await Seller.findOne({email : email}).catch(err => {

@@ -16,6 +16,7 @@ const getNewArrivalProducts = require('./route/get-new-arrival-products');
 const getAllCouriers = require('./route/get-all-couriers');
 const addTrackers = require('./route/add-tracker');
 const addTransactions = require('./route/add-transactions');
+const newProduct = require('./route/new-product');
 
 connectDB(app);
 app.use(cors(corsOptionsDelegate));
@@ -43,3 +44,4 @@ app.post('/register-seller', registerSeller)
 app.post('/login-seller', loginSeller)
 app.post('/add-transactions', addTransactions)
 app.post('/add-trackers', addTrackers)
+app.post('/new-product', newProduct)

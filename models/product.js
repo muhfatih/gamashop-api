@@ -10,6 +10,7 @@ const productSchema = new schema({
 	price : Number,
 	rating : Number,
 	amount_stocks : Number,
+	amount_sold : Number,
 	description : String,
 	amount_sold : Number,
 	created_at : Date,
