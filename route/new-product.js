@@ -17,7 +17,10 @@ async function newProduct(req,res) {
 		amount_sold : amount,
 		created_at : new Date().getTime()
 	})
-
+	const {saved, result, error} = await Product.save()
+		.then(res => ({saved: true, result: res}))
+		.catch(err => ({saved: false, error: err}))
+	if(!saved) return res.status(500).json({status: 'ERROR', code: 'failed-to-save', error: error.name})
 	return res.send(result)
 }
 
